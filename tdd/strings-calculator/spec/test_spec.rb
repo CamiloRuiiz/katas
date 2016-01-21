@@ -11,7 +11,7 @@ def clean(numbers)
 end
 
 def spliting(numbers)
-  numbers.split(',')
+  @numbersplited = numbers.split(',')
 end
 
 def intAdd(numbers)
@@ -21,9 +21,9 @@ def intAdd(numbers)
   
   clean(numbers)
   
-  a = spliting(numbers)
+  spliting(numbers)
   
-  sum(a)
+  sum(@numbersplited)
 end
 
 describe 'String Calculator' do
