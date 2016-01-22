@@ -60,5 +60,9 @@ describe 'String Calculator' do
     it 'Numbers bigger than 1000 should be ignored' do 
       expect(intAdd('2,1001,2')).to eq(4)
     end
+    
+    it 'for example: “//[***]\n1***2***3”' do 
+      expect(intAdd('//[***]\n1***2***3')).to eq(6)
+    end
   end
 end
