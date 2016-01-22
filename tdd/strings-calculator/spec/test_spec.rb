@@ -3,11 +3,12 @@ def error_negative?(numbers)
 end
 
 def sum(numbers)
-  numbers.map!{|i| i.to_i }.inject(:+)
+  numbers.map!{|i| if i.to_i > 1000 then i = 0 end; i.to_i}.inject(:+)
 end
 
 def clean(numbers)
-  numbers.gsub!(/[^-\d]/,',')
+  one = numbers.gsub!(/[^-\d]/,',')
+ ## one.gsub!(/(100\d),/,',')
 end
 
 def spliting(numbers)
@@ -50,6 +51,14 @@ describe 'String Calculator' do
     end
     it 'Allow the Add method to handle new lines between numbers' do 
       expect{intAdd('-1,3,-2')}.to raise_error('Negatives not allowed!')
+    end
+    
+    it 'The beginning of the string will contain a separate line' do
+      expect(intAdd('//;\n1;2')).to eq(3)
+    end
+
+    it 'Numbers bigger than 1000 should be ignored' do 
+      expect(intAdd('2,1001,2')).to eq(4)
     end
   end
 end
