@@ -44,19 +44,21 @@ FOUR
   result = scan(four)
   expect(result).to eql(4)
   end
-  it 'Convert acount of 4 numbers' do
-    firstacount = <<ACOUNT
-
+  it 'converts account' do
+    first_account = <<ACCOUNT
      _  _        _  _     _
  |_| _| _|  |  | _| _||_| _|
    ||_  _|  |  ||_ |_   | _|
 
-ACOUNT
+ACCOUNT
+    result = scan(first_account)
+    expect(result).to eq(423112243)
   end
 end
 
 def scan(input)
-
+  
+  
   scan_store = {
   "\n |\n |\n\n" => 1 , 
   " _\n _|\n|_ \n\n" => 2 , 
@@ -65,5 +67,7 @@ def scan(input)
   }
   
   scan_store[input]
-
+  
+  a = first_account.split("\n")
+  a.map!{|i| b = i.split("")}
 end 
