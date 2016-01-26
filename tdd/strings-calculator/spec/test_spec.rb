@@ -1,30 +1,33 @@
+def intAdd(numbers)
+  fail 'Negatives not allowed!' if error_negative?(numbers)
+  return 0 if numbers.empty?
+  
+  numbers_normalize = normalize_delimiters(numbers)
+  list = list_numbers(numbers_normalize)
+  sum(list)
+end
+
 def error_negative?(numbers)
   numbers.match(/-\d/)
 end
 
-def sum(numbers)
-  numbers.map!{|i| if i.to_i > 1000 then i = 0 end; i.to_i}.inject(:+)
-end
-
-def clean(numbers)
-  one = numbers.gsub!(/[^-\d]/,',')
+def normalize_delimiters(numbers)
+  numbers.gsub(/[^-\d]/,',')
  ## one.gsub!(/(100\d),/,',')
 end
 
-def spliting(numbers)
-  @numbersplited = numbers.split(',')
+def list_numbers(numbers)
+  numbers.split(',')
 end
 
-def intAdd(numbers)
-  fail 'Negatives not allowed!' if error_negative?(numbers)
-  
-  return 0 if numbers.empty?
-  
-  clean(numbers)
-  
-  spliting(numbers)
-  
-  sum(@numbersplited)
+def sum(numbers)
+  ignore_numbers = numbers.map! do |i| 
+    if i.to_i > 1000 
+      i = 0 
+    end 
+    i.to_i 
+  end 
+  ignore_numbers.inject(:+)
 end
 
 describe 'String Calculator' do
