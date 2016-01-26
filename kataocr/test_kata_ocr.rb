@@ -46,7 +46,7 @@ FOUR
   end
   it 'converts account' do
     first_account = <<ACCOUNT
-     _  _        _  _     _
+    _  _        _  _     _
  |_| _| _|  |  | _| _||_| _|
    ||_  _|  |  ||_ |_   | _|
 
