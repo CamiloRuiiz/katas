@@ -2,7 +2,7 @@
 
 **About this Kata**
 
-Kata originated here: acm.uva.es/p/v101/10189.html
+[Kata originated here:](acm.uva.es/p/v101/10189.html)
 
 Difficulty: Easy
 
